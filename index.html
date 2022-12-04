@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RPi Pico W</title>
+    </head>
+    <body>
+        <h1>RPi Pico W</h1>
+        <p>This page is being served by a Raspberry Pi Pico W running the Microdot framework.</p>
+        <p><a id="led-toggle-link" href="/led">Click to toggle LED</a></p>
+        <div class="power-display">
+            <br>
+            <table>
+                <tr>
+                    <th>Status</th>
+                    <th>Charge %</th>
+                    <th>Voltage</th>
+                </tr>
+                <tr>
+                    <td id="power-status">--</td>
+                    <td id="power-charge">--</td>
+                    <td id="power-voltage">--</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            const power = {
+                status: document.getElementById('power-status'),
+                charge: document.getElementById('power-charge'),
+                voltage: document.getElementById('power-voltage'),
+            };
+
+            function updateBatteryStatus() {
+                fetch('/pwr')
+                    .then((response) => response.json())
+                    .then((data) => {
+                        power.status.innerText = data.status;
+                        power.charge.innerText = data.charge;
+                        power.voltage.innerText = data.voltage;
+                    });
+            }
+
+            function toggleLed() {
+                fetch('/led')
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data.status);
+                    });
+            }
+
+            updateBatteryStatus();
+
+            const refreshBatteryStatus = setInterval(updateBatteryStatus, 5000);
+
+            document.getElementById('led-toggle-link').addEventListener('click', e => {
+                e.preventDefault(); 
+                toggleLed();
+            });
+        </script>
+    </body>
+</html>
