@@ -7,6 +7,8 @@
         <h1>RPi Pico W</h1>
         <p>This page is being served by a Raspberry Pi Pico W running the Microdot framework.</p>
         <p><a id="led-toggle-link" href="/led">Click to toggle LED</a></p>
+        <h2>Power Status</h2>
+        <p>Updates every 10 seconds.</p>
         <div class="power-display">
             <br>
             <table>
@@ -49,7 +51,7 @@
 
             updateBatteryStatus();
 
-            const refreshBatteryStatus = setInterval(updateBatteryStatus, 5000);
+            const refreshBatteryStatus = setInterval(updateBatteryStatus, 10000);
 
             document.getElementById('led-toggle-link').addEventListener('click', e => {
                 e.preventDefault(); 
