@@ -28,4 +28,6 @@ def get_power_status(request):
     status, voltage, charge = power_monitor.status()
     return { 'status': status, 'voltage': voltage, 'charge': charge }
 
+# TODO: https://github.com/miguelgrinberg/microdot/tree/main/examples/tls
+
 app.run(debug=True)

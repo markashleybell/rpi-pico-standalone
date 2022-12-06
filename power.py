@@ -3,7 +3,7 @@ from machine import ADC, Pin
 charging = Pin('WL_GPIO2', Pin.IN)
 
 full_battery = 3.85
-empty_battery = 3.0
+empty_battery = 3.24
 
 class PowerMonitor:
     def __init__(self, wlan):
