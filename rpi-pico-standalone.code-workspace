@@ -1,0 +1,23 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "python.languageServer": "Pylance",
+        "python.linting.enabled": true,
+        "python.analysis.typeCheckingMode": "basic",
+        "python.analysis.typeshedPaths": [
+            ".vscode\\Pico-W-Stub"
+        ],
+        "python.analysis.extraPaths": [
+            ".vscode\\Pico-W-Stub\\stubs"
+        ],
+        "files.exclude": {
+            "**/.picowgo": true,
+            "**/*.code-workspace": true,
+            "**/Pico-W-Stub": true
+        }
+    }
+}

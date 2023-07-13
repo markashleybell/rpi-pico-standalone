@@ -161,3 +161,5 @@ cython_debug/
 
 # Configuration values
 config.py
+
+**/Pico-W-Stub
