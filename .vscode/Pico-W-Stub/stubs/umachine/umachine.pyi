@@ -72,19 +72,197 @@ class Pin:
     digital logic level. For analog control of a pin, see the ADC class.
     """
 
-    ALT = 3
-    IN = 0
-    IRQ_FALLING = 4
-    IRQ_RISING = 8
-    OPEN_DRAIN = 2
-    OUT = 1
-    PULL_DOWN = 2
-    PULL_UP = 1
+    ALT = 3 # type: int
+    ALT_GPCK = 8 # type: int
+    ALT_I2C = 3 # type: int
+    ALT_PIO0 = 6 # type: int
+    ALT_PIO1 = 7 # type: int
+    ALT_PWM = 4 # type: int
+    ALT_SIO = 5 # type: int
+    ALT_SPI = 1 # type: int
+    ALT_UART = 2 # type: int
+    ALT_USB = 9 # type: int
+    IN = 0 # type: int
+    IRQ_FALLING = 4 # type: int
+    IRQ_RISING = 8 # type: int
+    OPEN_DRAIN = 2 # type: int
+    OUT = 1 # type: int
+    PULL_DOWN = 2 # type: int
+    PULL_UP = 1 # type: int
 
-    def __init__(self, id: int|str, /, mode: int = IN, pull: int = PULL_UP, af: str|int = -1):
+    class board():
+        GP0 : Pin
+        """ <class 'Pin'> = Pin(GPIO0, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP1 : Pin
+        """ <class 'Pin'> = Pin(GPIO1, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP10 : Pin
+        """ <class 'Pin'> = Pin(GPIO10, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP11 : Pin
+        """ <class 'Pin'> = Pin(GPIO11, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP12 : Pin
+        """ <class 'Pin'> = Pin(GPIO12, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP13 : Pin
+        """ <class 'Pin'> = Pin(GPIO13, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP14 : Pin
+        """ <class 'Pin'> = Pin(GPIO14, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP15 : Pin
+        """ <class 'Pin'> = Pin(GPIO15, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP16 : Pin
+        """ <class 'Pin'> = Pin(GPIO16, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP17 : Pin
+        """ <class 'Pin'> = Pin(GPIO17, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP18 : Pin
+        """ <class 'Pin'> = Pin(GPIO18, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP19 : Pin
+        """ <class 'Pin'> = Pin(GPIO19, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP2 : Pin
+        """ <class 'Pin'> = Pin(GPIO2, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP20 : Pin
+        """ <class 'Pin'> = Pin(GPIO20, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP21 : Pin
+        """ <class 'Pin'> = Pin(GPIO21, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP22 : Pin
+        """ <class 'Pin'> = Pin(GPIO22, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP26 : Pin
+        """ <class 'Pin'> = Pin(GPIO26, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP27 : Pin
+        """ <class 'Pin'> = Pin(GPIO27, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP28 : Pin
+        """ <class 'Pin'> = Pin(GPIO28, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP3 : Pin
+        """ <class 'Pin'> = Pin(GPIO3, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP4 : Pin
+        """ <class 'Pin'> = Pin(GPIO4, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP5 : Pin
+        """ <class 'Pin'> = Pin(GPIO5, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP6 : Pin
+        """ <class 'Pin'> = Pin(GPIO6, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP7 : Pin
+        """ <class 'Pin'> = Pin(GPIO7, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP8 : Pin
+        """ <class 'Pin'> = Pin(GPIO8, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GP9 : Pin
+        """ <class 'Pin'> = Pin(GPIO9, mode=ALT, pull=PULL_DOWN, alt=31) """
+        LED : Pin
+        """ <class 'Pin'> = Pin(EXT_GPIO0, mode=IN) """
+        WL_GPIO0 : Pin
+        """ <class 'Pin'> = Pin(EXT_GPIO0, mode=IN) """
+        WL_GPIO1 : Pin
+        """ <class 'Pin'> = Pin(EXT_GPIO1, mode=IN) """
+        WL_GPIO2 : Pin
+        """ <class 'Pin'> = Pin(EXT_GPIO2, mode=IN) """
+
+    class cpu():
+
+        EXT_GPIO0 : Pin
+        """ <class 'Pin'> = Pin(EXT_GPIO0, mode=IN) """
+        EXT_GPIO1 : Pin
+        """ <class 'Pin'> = Pin(EXT_GPIO1, mode=IN) """
+        EXT_GPIO2 : Pin
+        """ <class 'Pin'> = Pin(EXT_GPIO2, mode=IN) """
+        GPIO0 : Pin
+        """ <class 'Pin'> = Pin(GPIO0, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO1 : Pin
+        """ <class 'Pin'> = Pin(GPIO1, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO10 : Pin
+        """ <class 'Pin'> = Pin(GPIO10, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO11 : Pin
+        """ <class 'Pin'> = Pin(GPIO11, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO12 : Pin
+        """ <class 'Pin'> = Pin(GPIO12, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO13 : Pin
+        """ <class 'Pin'> = Pin(GPIO13, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO14 : Pin
+        """ <class 'Pin'> = Pin(GPIO14, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO15 : Pin
+        """ <class 'Pin'> = Pin(GPIO15, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO16 : Pin
+        """ <class 'Pin'> = Pin(GPIO16, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO17 : Pin
+        """ <class 'Pin'> = Pin(GPIO17, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO18 : Pin
+        """ <class 'Pin'> = Pin(GPIO18, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO19 : Pin
+        """ <class 'Pin'> = Pin(GPIO19, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO2 : Pin
+        """ <class 'Pin'> = Pin(GPIO2, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO20 : Pin
+        """ <class 'Pin'> = Pin(GPIO20, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO21 : Pin
+        """ <class 'Pin'> = Pin(GPIO21, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO22 : Pin
+        """ <class 'Pin'> = Pin(GPIO22, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO23 : Pin
+        """ <class 'Pin'> = Pin(GPIO23, mode=ALT, alt=31) """
+        GPIO24 : Pin
+        """ <class 'Pin'> = Pin(GPIO24, mode=ALT, alt=31) """
+        GPIO25 : Pin
+        """ <class 'Pin'> = Pin(GPIO25, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO26 : Pin
+        """ <class 'Pin'> = Pin(GPIO26, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO27 : Pin
+        """ <class 'Pin'> = Pin(GPIO27, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO28 : Pin
+        """ <class 'Pin'> = Pin(GPIO28, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO29 : Pin
+        """ <class 'Pin'> = Pin(GPIO29, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO3 : Pin
+        """ <class 'Pin'> = Pin(GPIO3, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO4 : Pin
+        """ <class 'Pin'> = Pin(GPIO4, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO5 : Pin
+        """ <class 'Pin'> = Pin(GPIO5, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO6 : Pin
+        """ <class 'Pin'> = Pin(GPIO6, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO7 : Pin
+        """ <class 'Pin'> = Pin(GPIO7, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO8 : Pin
+        """ <class 'Pin'> = Pin(GPIO8, mode=ALT, pull=PULL_DOWN, alt=31) """
+        GPIO9 : Pin
+        """ <class 'Pin'> = Pin(GPIO9, mode=ALT, pull=PULL_DOWN, alt=31) """
+
+    def __init__(self, id: int|str|tuple[Any,Any], mode: int = -1, pull: int | None = -1, *, value: int | None = None, drive: int = 0, alt: int = -1):
         """
-        Create a new Pin object associated with the id.  If additional arguments are given,
-        they are used to initialise the pin.  See :meth:`pin.init`.
+        Access the pin peripheral (GPIO pin) associated with the given id. If additional arguments are
+        given in the constructor then they are used to initialise the pin. Any settings that are not
+        specified will remain in their previous state.
+
+The arguments are:
+
+- `id` is mandatory and can be an arbitrary object. Among possible value types are: int
+(an internal Pin identifier), str (a Pin name), and tuple (pair of [port, pin]).
+- `mode` specifies the pin mode, which can be one of:
+    - `Pin.IN` - Pin is configured for input. If viewed as an output the pin is in high-impedance state.
+    - `Pin.OUT` - Pin is configured for (normal) output.
+    - `Pin.OPEN_DRAIN` - Pin is configured for open-drain output. Open-drain output works in the
+    following way: if the output value is set to 0 the pin is active at a low level; if the output
+    value is 1 the pin is in a high-impedance state. Not all ports implement this mode, or some might only on certain pins.
+    - `Pin.ALT` - Pin is configured to perform an alternative function, which is port specific. For
+    a pin configured in such a way any other Pin methods (except Pin.init()) are not applicable
+    (calling them will lead to undefined, or a hardware-specific, result). Not all ports implement this mode.
+    - `Pin.ALT_OPEN_DRAIN` - The Same as `Pin.ALT`, but the pin is configured as open-drain. Not all
+    ports implement this mode.
+    - `Pin.ANALOG` - Pin is configured for analog input, see the ADC class.
+- `pull` specifies if the pin has a (weak) pull resistor attached, and can be one of:
+    - `None` - No pull up or down resistor.
+    - `Pin.PULL_UP` - Pull up resistor enabled.
+    - `Pin.PULL_DOWN` - Pull down resistor enabled.
+- `value` is valid only for `Pin.OUT` and `Pin.OPEN_DRAIN` modes and specifies initial output pin value if
+given, otherwise the state of the pin peripheral remains unchanged.
+- `drive` specifies the output power of the pin and can be one of: `Pin.DRIVE_0`, `Pin.DRIVE_1`, etc.,
+increasing in drive strength. The actual current driving capabilities are port dependent. Not all ports implement this argument.
+- `alt` specifies an alternate function for the pin and the values it can take are port dependent. This
+argument is valid only for `Pin.ALT` and `Pin.ALT_OPEN_DRAIN` modes. It may be used when a pin supports
+more than one alternate function. If only one pin alternate function is supported the this argument is
+not required. Not all ports implement this argument.
+
+As specified above, the Pin class allows to set an alternate function for a particular pin, but it does not specify any
+further operations on such a pin. Pins configured in alternate-function mode are usually not used as GPIO but are instead
+driven by other hardware peripherals. The only operation supported on such a pin is re-initialising, by calling the
+constructor or `Pin.init()` method. If a pin that is configured in alternate-function mode is re-initialised
+with `Pin.IN`, `Pin.OUT`, or `Pin.OPEN_DRAIN`, the alternate function will be removed from the pin.
+
+        (Source: https://docs.micropython.org/en/latest/library/machine.Pin.html, Copyright: 2014-2023 Damien P. George, Paul Sokolovsky, and contributors.)
         """
         ...
 
@@ -94,9 +272,10 @@ class Pin:
         """
         ...
 
-    def init(self):
+    def init(self, mode: int = -1, pull: int | None = -1, *, value: int | None = None, drive: int = 0, alt: int = -1):
         """
-        Initialises the pin.
+        Re-initialise the pin using the given parameters. Only those arguments that are specified will be set. The rest
+        of the pin peripheral state will remain unchanged. See the constructor documentation for details of the arguments.
         """
         ...
 
@@ -144,6 +323,30 @@ class Pin:
             is set high, otherwise it is set low.
         """
         ...
+
+
+class RTC():
+    """The RTC is an independent clock that keeps track of the date and time."""
+
+    def __init__(self, *argv, **kwargs) -> None:
+        ...
+
+    def datetime(self, *args, **kwargs) -> Any:
+        """
+        Get or set the date and time of the RTC.
+
+        With no arguments, this method returns an 8-tuple with the 
+        current date and time. With 1 argument (being an 8-tuple) 
+        it sets the date and time.
+
+        The 8-tuple has the following format:
+
+        (year, month, day, weekday, hours, minutes, seconds, subseconds)
+
+        The meaning of the `subseconds` field is hardware dependent.
+        """
+        ...
+
 
 class SPI:
     """
@@ -857,6 +1060,99 @@ class I2C:
         ...
 
 
+class I2S():
+    """
+    I2S is a synchronous serial protocol used to connect digital audio devices. 
+    At the physical level, a bus consists of 3 lines: SCK, WS, SD. The I2S class 
+    supports controller operation. Peripheral operation is not supported.
+
+    The I2S class is currently available as a Technical Preview. During the preview 
+    period, feedback from users is encouraged. Based on this feedback, the I2S class 
+    API and implementation may be changed.
+    """
+
+    def __init__(self, *argv, **kwargs) -> None:
+        """
+        Construct an I2S object of the given id:
+
+        id identifies a particular I2S bus; it is board and port specific
+
+        Keyword-only parameters that are supported on all ports:
+
+        - `sck` is a pin object for the serial clock line
+
+        - `ws` is a pin object for the word select line
+
+        - `sd` is a pin object for the serial data line
+
+        - `mck` is a pin object for the master clock line; master clock frequency is sampling rate * 256
+
+        - `mode` specifies receive or transmit
+
+        - `bits` specifies sample size (bits), 16 or 32
+
+        - `format` specifies channel format, STEREO or MONO
+
+        - `rate` specifies audio sampling rate (Hz); this is the frequency of the ws signal
+
+        - `ibuf` specifies internal buffer length (bytes)
+        """
+        ...
+
+    def readinto(self, buf) -> int:
+        """
+        Read audio samples into the buffer specified by `buf`. `buf` must 
+        support the buffer protocol, such as bytearray or array. "buf" 
+        byte ordering is little-endian. For Stereo format, left channel 
+        sample precedes right channel sample. For Mono format, the left 
+        channel sample data is used. Returns number of bytes read
+        """
+        ...
+
+    def write(self, buf) -> int:
+        """
+        Write audio samples contained in `buf`. `buf` must support the buffer protocol, 
+        such as bytearray or array. “buf” byte ordering is little-endian. For Stereo 
+        format, left channel sample precedes right channel sample. For Mono format, 
+        the sample data is written to both the right and left channels. 
+        Returns number of bytes written
+        """
+        ...
+
+    MONO = 0 # type: int
+    RX = 0 # type: int
+    STEREO = 1 # type: int
+    TX = 1 # type: int
+
+    def deinit(self, *args, **kwargs) -> Any:
+        """Deinitialize the I2S bus"""
+        ...
+
+    def init(self, *args, **kwargs) -> Any:
+        ...
+
+    def irq(self, handler) -> Any:
+        """
+        Set a callback. `handler` is called when `buf` is 
+        emptied (`write` method) or becomes full 
+        (`readinto` method). Setting a callback changes 
+        the `write` and `readinto` methods to non-blocking 
+        operation. `handler` is called in the context 
+        of the MicroPython scheduler.
+        """
+        ...
+
+    def shift(self, buf, bits, shift: int) -> Any:
+        """
+        bitwise shift of all samples contained in `buf`. `bits` 
+        specifies sample size in bits. `shift` specifies the number 
+        of bits to shift each sample. Positive for left shift, 
+        negative for right shift. Typically used for volume control. 
+        Each bit shift changes sample volume by 6dB.
+        """
+        ...
+
+
 class PWM:
     """
     Pulse width modulation (PWM), allows you to give analogue behaviours to digital
@@ -1004,47 +1300,23 @@ class SoftI2C:
     Software I2C is implemented by bit-banging and can be used on any pin but is not
     as efficient.  These classes have the same methods available and differ primarily
     in the way they are constructed.
-
-    Example usage::
-
-        from machine import I2C
-
-        # create I2C peripheral at frequency of 400kHz
-        i2c = I2C(freq=400000)
-                                        # depending on the port, extra parameters may be required
-                                        # to select the peripheral and/or pins to use
-
-        i2c.scan()                      # scan for slaves, returning a list of 7-bit addresses
-
-        # write 3 bytes to slave with 7-bit address 42
-        i2c.writeto(42, b'123')
-        # read 4 bytes from slave with 7-bit address 42
-        i2c.readfrom(42, 4)
-
-        i2c.readfrom_mem(42, 8, 3)      # read 3 bytes from memory of slave 42,
-                                        #   starting at memory-address 8 in the slave
-        i2c.writeto_mem(42, 2, b'\x10') # write 1 byte to memory of slave 42
-                                        #   starting at address 2 in the slave
     """
 
-    def __init__(self, id: int, /, *, scl: Pin, sda: Pin, freq: int = 400_000):
+    def __init__(self, scl: Pin, sda: Pin, *, freq: int = 400_000, timeout: int = 50_000):
         """
-        Construct and return a new I2C object using the following parameters:
+        Construct and return a new software I2C object using the following parameters:
 
-           - *id* identifies a particular I2C peripheral.  Allowed values for
-             depend on the particular port/board
            - *scl* should be a pin object specifying the pin to use for SCL.
            - *sda* should be a pin object specifying the pin to use for SDA.
            - *freq* should be an integer which sets the maximum frequency
              for SCL.
-
-        Note that some ports/boards will have default values of *scl* and *sda*
-        that can be changed in this constructor.  Others will have fixed values
-        of *scl* and *sda* that cannot be changed.
+           - *timeout* is the maximum time in microseconds to wait for clock 
+             stretching (SCL held low by another device on the bus), 
+             after which an `OSError(ETIMEDOUT)` exception is raised.
         """
         ...
 
-    def init(self, *, scl: Pin, sda: Pin, freq: int = 400_000) -> None:
+    def init(self, scl: Pin, sda: Pin, *, freq: int = 400_000, timeout: int = 50_000) -> None:
         """
        Initialise the I2C bus with the given arguments:
 
@@ -1316,6 +1588,7 @@ class Timer:
         /,
         *,
         mode: int = PERIODIC,
+        freq: float|None = None,
         period: int = -1,
         callback: Callable[["Timer"], None] |None = None,
     ):
@@ -1330,8 +1603,8 @@ class Timer:
     def init(
         self,
         *,
-        freq: float|None = None,
         mode: int = PERIODIC,
+        freq: float|None = None,
         period: int = -1,
         callback: Callable[["Timer"], None]|None = None,
     ) -> None:
@@ -1560,7 +1833,7 @@ def deepsleep(time_ms: int|None = None) -> None:
     ...
 
 
-def lightleep(time_ms: int|None = None) -> None:
+def lightsleep(time_ms: int|None = None) -> None:
     """
     Stops execution in an attempt to enter a low power state.
 
@@ -1615,11 +1888,31 @@ def idle():
     """
     ...
 
+class mem:
+    """Don't use this class/type! It's only for type annotations. And does not exist at runtime!"""
+    def __getitem__(self, address: int) -> int: ...
+    def __setitem__(self, address: int, value: int) -> None: ...
 
-mem16 = None
-mem32 = None
-mem8 = None
+mem16: mem
+"""Read/write 16 bits of memory.
 
+Use subscript notation `[...]` to index these objects with the address of interest. 
+Note that the address is the byte address, regardless of the size of memory being accessed.
+"""
+
+mem32: mem
+"""Read/write 32 bits of memory.
+
+Use subscript notation `[...]` to index these objects with the address of interest. 
+Note that the address is the byte address, regardless of the size of memory being accessed.
+"""
+
+mem8: mem
+"""Read/write 8 bits of memory.
+
+Use subscript notation `[...]` to index these objects with the address of interest. 
+Note that the address is the byte address, regardless of the size of memory being accessed.
+"""
 
 def reset():
     """
@@ -1670,5 +1963,18 @@ def unique_id() -> str:
     from a board/SoC instance to another, if underlying hardware allows. Length
     varies by hardware (so use substring of a full value if you expect a short
     ID). In some MicroPython ports, ID corresponds to the network MAC address.
+    """
+    ...
+
+
+###############
+# NOTE: added #
+
+
+def dht_readinto(*args, **kwargs) -> Any:
+    """
+    Reads the temperature and humidity from the DHT sensor.
+
+    (this function is also the redirection target of dth.dth_readinto() on the rp2040)
     """
     ...
