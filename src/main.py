@@ -14,17 +14,17 @@ power_monitor = PowerMonitor(wlan)
 app = Microdot()
 
 @app.route('/')
-def hello(request):
+async def index(request):
     return send_file('index.html', content_type='text/html')
 
 @app.route('/led')
-def toggle_led(request):
+async def toggle_led(request):
     val = led.value() == 0
     led.value(val)
     return { 'status': 'ON' if val else 'OFF' }
 
 @app.route('/pwr')
-def get_power_status(request):
+async def get_power_status(request):
     status, voltage, charge = power_monitor.status()
     return { 'status': status, 'voltage': voltage, 'charge': charge }
 
