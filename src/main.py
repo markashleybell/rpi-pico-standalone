@@ -1,3 +1,5 @@
+import asyncio
+
 from boot import wlan
 from machine import Pin
 from microdot import Microdot, send_file
@@ -28,6 +30,14 @@ async def get_power_status(request):
     status, voltage, charge = power_monitor.status()
     return { 'status': status, 'voltage': voltage, 'charge': charge }
 
+@app.route('/shutdown')
+async def shutdown(request):
+    request.app.shutdown()
+    return { 'status': 'Shutting down...' }
+
 # TODO: https://github.com/miguelgrinberg/microdot/tree/main/examples/tls
 
-app.run(debug=True)
+async def main():
+    await app.start_server(debug=True)
+
+asyncio.run(main())
